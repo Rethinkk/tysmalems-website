@@ -1,0 +1,12 @@
+[
+  {
+    "from": "/page-2",
+    "to": "/approach/",
+    "status": 301
+  },
+  {
+    "from": "/journal/international-lives-require-international-thinking/",
+    "to": "/journal/international-lives-require-international-thinking",
+    "status": 301
+  }
+]

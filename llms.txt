@@ -1,0 +1,29 @@
+# Tysma | Lems
+
+Tysma | Lems is an international tax advisory firm in Rotterdam, the Netherlands.
+The firm advises globally mobile professionals, maritime professionals, international businesses and private clients on international tax and social security matters.
+
+## Important Pages
+
+- Home: https://www.tysmalems.com/
+- Approach: https://www.tysmalems.com/approach/
+- Journal: https://www.tysmalems.com/journal/
+- Contact: https://www.tysmalems.com/contact/
+
+## Journal Categories
+
+- International Tax: https://www.tysmalems.com/journal/category/international-tax/
+- Maritime: https://www.tysmalems.com/journal/category/maritime/
+- Global Mobility: https://www.tysmalems.com/journal/category/global-mobility/
+- Personal Business: https://www.tysmalems.com/journal/category/personal-business/
+- Perspectives: https://www.tysmalems.com/journal/category/perspectives/
+
+## Editorial Focus
+
+The Journal contains thoughts, observations and perspectives on international lives.
+Core topics include international tax, maritime tax matters, global mobility, cross-border workers, expatriates, private clients, entrepreneurs, investors, succession, social security and internationally mobile families.
+
+## Crawl Policy
+
+Public pages and published Journal articles are intended to be crawlable by search engines and AI search crawlers.
+CMS and editorial desk pages should not be indexed.

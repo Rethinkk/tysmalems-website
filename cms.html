@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CMS Desk | Tysma Lems</title>
+    <meta name="description" content="Local CMS desk prototype for Tysma Lems.">
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="stylesheet" href="styles.css?v=25">
+  </head>
+  <body class="inner-page cms-page">
+    <header class="site-header" data-header>
+      <a class="brand" href="index.html" aria-label="Tysma Lems home">TYSMA | LEMS</a>
+      <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" data-menu-button>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" data-nav>
+        <a href="index.html#international-lives">International lives</a>
+        <a href="approach.html">Approach</a>
+        <a href="insights.html">Insights</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="page-main">
+      <section class="cms-desk page-section">
+        <div class="section-label">CMS Desk</div>
+        <h1 class="page-title">Journal publishing and page media</h1>
+        <p class="cms-intro">A local prototype for the editorial workflow: manage rotating page photography and create structured Journal items before connecting a production CMS.</p>
+
+        <div class="cms-grid">
+          <div class="cms-media-stack">
+            <section class="cms-panel" aria-labelledby="hero-media-title">
+              <div class="cms-panel-head">
+                <h2 id="hero-media-title">Homepage hero photos</h2>
+                <button type="button" class="secondary-button" data-reset-hero>Reset defaults</button>
+              </div>
+              <div class="hero-manager" data-hero-manager></div>
+              <label class="upload-drop">
+                <span>Upload new homepage photo</span>
+                <input type="file" accept="image/*" data-hero-upload>
+              </label>
+            </section>
+
+            <section class="cms-panel" aria-labelledby="approach-media-title">
+              <div class="cms-panel-head">
+                <h2 id="approach-media-title">Approach hero photos</h2>
+                <button type="button" class="secondary-button" data-reset-approach-hero>Reset defaults</button>
+              </div>
+              <div class="hero-manager" data-approach-hero-manager></div>
+              <label class="upload-drop">
+                <span>Upload new approach photo</span>
+                <input type="file" accept="image/*" data-approach-hero-upload>
+              </label>
+            </section>
+
+            <section class="cms-panel" aria-labelledby="footer-social-title">
+              <div class="cms-panel-head">
+                <h2 id="footer-social-title">Footer social links</h2>
+                <button type="button" class="secondary-button" data-reset-social-links>Reset</button>
+              </div>
+              <form class="cms-form social-form" data-social-form>
+                <label>
+                  <span>LinkedIn URL</span>
+                  <input type="url" name="linkedin" placeholder="https://www.linkedin.com/company/...">
+                </label>
+                <label>
+                  <span>Instagram URL</span>
+                  <input type="url" name="instagram" placeholder="https://www.instagram.com/...">
+                </label>
+                <label>
+                  <span>X URL</span>
+                  <input type="url" name="x" placeholder="https://x.com/...">
+                </label>
+                <label>
+                  <span>Facebook URL</span>
+                  <input type="url" name="facebook" placeholder="https://www.facebook.com/...">
+                </label>
+                <div class="cms-actions">
+                  <button type="submit" class="primary-button">Save social links</button>
+                </div>
+                <p class="cms-status" data-social-status></p>
+              </form>
+            </section>
+          </div>
+
+          <section class="cms-panel" aria-labelledby="journal-form-title">
+            <div class="cms-panel-head">
+              <h2 id="journal-form-title">Article editor</h2>
+              <button type="button" class="secondary-button" data-new-article>New item</button>
+            </div>
+            <form class="cms-form" data-article-form>
+              <input type="hidden" name="id">
+              <div class="field-grid">
+                <label>
+                  <span>Journal number</span>
+                  <input name="journalNumber" placeholder="001">
+                </label>
+                <label>
+                  <span>Status</span>
+                  <select name="status">
+                    <option>Draft</option>
+                    <option>Review</option>
+                    <option>Scheduled</option>
+                    <option>Published</option>
+                    <option>Archived</option>
+                  </select>
+                </label>
+              </div>
+              <label>
+                <span>Title</span>
+                <input name="title" required>
+              </label>
+              <label>
+                <span>Slug</span>
+                <input name="slug" required>
+              </label>
+              <label>
+                <span>Standfirst</span>
+                <textarea name="standfirst" rows="3"></textarea>
+              </label>
+              <div class="field-grid">
+                <label>
+                  <span>Category</span>
+                  <select name="category">
+                    <option>International Tax</option>
+                    <option>Maritime</option>
+                    <option>Global Mobility</option>
+                    <option>Personal Business</option>
+                    <option>Perspectives</option>
+                  </select>
+                </label>
+                <label>
+                  <span>Publish date/time</span>
+                  <input type="datetime-local" name="publishedAt">
+                </label>
+              </div>
+              <label>
+                <span>Tags</span>
+                <input name="tags" placeholder="international tax, mobility">
+              </label>
+              <label>
+                <span>Author(s)</span>
+                <input name="authors" placeholder="Tysma | Lems">
+              </label>
+              <label>
+                <span>Article body</span>
+                <textarea name="body" rows="10"></textarea>
+              </label>
+              <label>
+                <span>SEO description</span>
+                <textarea name="seoDescription" rows="2"></textarea>
+              </label>
+              <label class="checkbox-field">
+                <input type="checkbox" name="featured">
+                <span>Featured on Journal landing page</span>
+              </label>
+              <div class="checkbox-stack">
+                <label class="checkbox-field">
+                  <input type="checkbox" name="publishToLinkedIn">
+                  <span>Publish automatically to the Tysma | Lems LinkedIn page</span>
+                </label>
+                <label class="checkbox-field">
+                  <input type="checkbox" name="publicShareEnabled">
+                  <span>Enable public share function on the article page</span>
+                </label>
+              </div>
+              <div class="field-grid">
+                <label>
+                  <span>Featured rank</span>
+                  <input type="number" name="featuredRank" min="1">
+                </label>
+                <label>
+                  <span>Hero image</span>
+                  <input type="file" accept="image/*" data-article-hero>
+                </label>
+              </div>
+              <div class="cms-actions">
+                <button type="submit" class="primary-button">Save item</button>
+                <a class="secondary-button" href="insights.html">Preview Journal</a>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        <section class="cms-panel article-desk" aria-labelledby="article-desk-title">
+          <div class="cms-panel-head">
+            <h2 id="article-desk-title">Journal desk</h2>
+            <p data-desk-count></p>
+          </div>
+          <div class="desk-table" data-article-desk></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js?v=25"></script>
+    <script src="cms.js?v=25"></script>
+  </body>
+</html>
