@@ -263,6 +263,10 @@ function renderArticlePage() {
     <p class="article-standfirst">${article.standfirst}</p>
     ${article.heroMedia ? `<img class="article-hero" src="${article.heroMedia}" alt="">` : ""}
     <div class="article-body">${paragraphs}</div>
+    <aside class="article-contact">
+      <p>If you would like to know more about this subject, contact Tysma | Lems.</p>
+      <a href="contact.html">Contact us</a>
+    </aside>
     <footer class="article-footer">
       <p class="article-updated">Updated ${formatDate(article.updatedAt || article.publishedAt)}</p>
       <div class="article-footer-actions">
