@@ -2,6 +2,7 @@ const heroKey = "tlHeroImages";
 const approachHeroKey = "tlApproachHeroImages";
 const socialLinksKey = "tlSocialLinks";
 const articlesKey = "tlJournalArticles";
+const corporatePagesKey = "tlCorporatePages";
 const fallbackHeroImages = [
   { id: "maritime", src: "hero-maritime.png", name: "Maritime" },
   { id: "global-mobility", src: "hero-global-mobility.png", name: "Global Mobility" },
@@ -18,6 +19,58 @@ const fallbackSocialLinks = [
   { id: "x", label: "X", shortLabel: "x", url: "" },
   { id: "facebook", label: "Facebook", shortLabel: "f", url: "" },
 ];
+const fallbackCorporatePages = [
+  {
+    slug: "terms",
+    label: "Terms & Conditions",
+    title: "Terms & Conditions",
+    intro: "The terms under which Tysma | Lems provides information through this website and, where applicable, professional services.",
+    body: "This page is reserved for the current Terms & Conditions of Tysma | Lems.\n\nUse this CMS section to add the full legal wording, update the effective date and keep the published version aligned with the firm's current engagement terms.",
+    seoDescription: "Terms and conditions for Tysma | Lems.",
+    status: "Published",
+    updatedAt: "2026-08-31",
+  },
+  {
+    slug: "privacy",
+    label: "Privacy",
+    title: "Privacy",
+    intro: "How Tysma | Lems handles personal data shared through this website and in professional contact with the firm.",
+    body: "This page is reserved for the current privacy statement of Tysma | Lems.\n\nUse this CMS section to describe which personal data is processed, for which purposes, how long it is retained and how visitors can exercise their privacy rights.",
+    seoDescription: "Privacy statement for Tysma | Lems.",
+    status: "Published",
+    updatedAt: "2026-08-31",
+  },
+  {
+    slug: "disclaimer",
+    label: "Disclaimer",
+    title: "Disclaimer",
+    intro: "Important notes about the information provided on this website.",
+    body: "This page is reserved for the current disclaimer of Tysma | Lems.\n\nUse this CMS section to clarify that website information is general in nature and does not replace advice tailored to a specific situation.",
+    seoDescription: "Website disclaimer for Tysma | Lems.",
+    status: "Published",
+    updatedAt: "2026-08-31",
+  },
+  {
+    slug: "cookies",
+    label: "Cookies",
+    title: "Cookies",
+    intro: "Information about the cookies and similar technologies used on this website.",
+    body: "This page is reserved for the current cookie statement of Tysma | Lems.\n\nUse this CMS section to explain which cookies are used, why they are used and how visitors can manage their preferences.",
+    seoDescription: "Cookie statement for Tysma | Lems.",
+    status: "Published",
+    updatedAt: "2026-08-31",
+  },
+  {
+    slug: "csr",
+    label: "Corporate Social Responsibility",
+    title: "Corporate Social Responsibility",
+    intro: "How Tysma | Lems looks at responsible business, people, community and long-term professional conduct.",
+    body: "This page is reserved for the current Corporate Social Responsibility statement of Tysma | Lems.\n\nUse this CMS section to describe the firm's commitments, initiatives and principles in a concise and practical way.",
+    seoDescription: "Corporate Social Responsibility information from Tysma | Lems.",
+    status: "Published",
+    updatedAt: "2026-08-31",
+  },
+];
 
 const manager = document.querySelector("[data-hero-manager]");
 const upload = document.querySelector("[data-hero-upload]");
@@ -28,6 +81,10 @@ const resetApproachHero = document.querySelector("[data-reset-approach-hero]");
 const socialForm = document.querySelector("[data-social-form]");
 const resetSocialLinks = document.querySelector("[data-reset-social-links]");
 const socialStatus = document.querySelector("[data-social-status]");
+const corporatePageForm = document.querySelector("[data-corporate-page-form]");
+const corporatePageList = document.querySelector("[data-corporate-page-list]");
+const corporatePageStatus = document.querySelector("[data-corporate-page-status]");
+const resetCorporatePages = document.querySelector("[data-reset-corporate-pages]");
 const form = document.querySelector("[data-article-form]");
 const desk = document.querySelector("[data-article-desk]");
 const deskCount = document.querySelector("[data-desk-count]");
@@ -93,6 +150,52 @@ function getSocialLinks() {
     ...fallbackLink,
     url: savedLinks.find((link) => link.id === fallbackLink.id)?.url || "",
   }));
+}
+
+function getCorporatePages() {
+  const savedPages = readJson(corporatePagesKey, fallbackCorporatePages);
+  return fallbackCorporatePages.map((fallbackPage) => ({
+    ...fallbackPage,
+    ...(savedPages.find((page) => page.slug === fallbackPage.slug) || {}),
+  }));
+}
+
+function corporatePageUrl(slug) {
+  const urls = {
+    terms: "terms.html",
+    privacy: "privacy.html",
+    disclaimer: "disclaimer.html",
+    cookies: "cookies.html",
+    csr: "csr.html",
+  };
+  return urls[slug] || "legal.html";
+}
+
+function fillCorporatePageForm(slug = corporatePageForm?.elements.slug.value || "terms") {
+  if (!corporatePageForm) return;
+  const page = getCorporatePages().find((item) => item.slug === slug) || fallbackCorporatePages[0];
+  corporatePageForm.elements.slug.value = page.slug;
+  corporatePageForm.elements.status.value = page.status || "Draft";
+  corporatePageForm.elements.updatedAt.value = page.updatedAt || new Date().toISOString().slice(0, 10);
+  corporatePageForm.elements.title.value = page.title || "";
+  corporatePageForm.elements.intro.value = page.intro || "";
+  corporatePageForm.elements.body.value = page.body || "";
+  corporatePageForm.elements.seoDescription.value = page.seoDescription || "";
+}
+
+function renderCorporatePageList() {
+  if (!corporatePageList) return;
+  corporatePageList.innerHTML = getCorporatePages()
+    .map((page) => `
+      <article class="corporate-page-row">
+        <div>
+          <strong>${page.label}</strong>
+          <span>${page.status || "Draft"} - Updated ${page.updatedAt || "not set"}</span>
+        </div>
+        <a href="${corporatePageUrl(page.slug)}">Preview</a>
+      </article>
+    `)
+    .join("");
 }
 
 function fillSocialForm() {
@@ -246,6 +349,39 @@ resetSocialLinks.addEventListener("click", () => {
   socialStatus.textContent = "Social links reset.";
 });
 
+corporatePageForm.addEventListener("change", (event) => {
+  if (event.target.name === "slug") fillCorporatePageForm(event.target.value);
+});
+
+corporatePageForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const pages = getCorporatePages();
+  const slug = corporatePageForm.elements.slug.value;
+  const existing = pages.find((page) => page.slug === slug);
+  const nextPage = {
+    ...(existing || {}),
+    slug,
+    label: existing?.label || corporatePageForm.elements.slug.selectedOptions[0].textContent,
+    status: corporatePageForm.elements.status.value,
+    updatedAt: corporatePageForm.elements.updatedAt.value || new Date().toISOString().slice(0, 10),
+    title: corporatePageForm.elements.title.value,
+    intro: corporatePageForm.elements.intro.value,
+    body: corporatePageForm.elements.body.value,
+    seoDescription: corporatePageForm.elements.seoDescription.value,
+  };
+
+  saveJson(corporatePagesKey, pages.map((page) => page.slug === slug ? nextPage : page));
+  corporatePageStatus.textContent = `${nextPage.label} saved.`;
+  renderCorporatePageList();
+});
+
+resetCorporatePages.addEventListener("click", () => {
+  saveJson(corporatePagesKey, fallbackCorporatePages);
+  fillCorporatePageForm();
+  renderCorporatePageList();
+  corporatePageStatus.textContent = "Corporate pages reset.";
+});
+
 form.elements.title.addEventListener("input", () => {
   if (!form.elements.id.value) form.elements.slug.value = slugify(form.elements.title.value);
 });
@@ -309,5 +445,7 @@ desk.addEventListener("click", (event) => {
 renderHeroManager();
 renderApproachHeroManager();
 fillSocialForm();
+fillCorporatePageForm();
+renderCorporatePageList();
 resetForm();
 renderDesk();

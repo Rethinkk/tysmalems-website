@@ -6,7 +6,7 @@
     <title>CMS Desk | Tysma Lems</title>
     <meta name="description" content="Local CMS desk prototype for Tysma Lems.">
     <meta name="robots" content="noindex,nofollow">
-    <link rel="stylesheet" href="styles.css?v=27">
+    <link rel="stylesheet" href="styles.css?v=28">
   </head>
   <body class="inner-page cms-page">
     <header class="site-header" data-header>
@@ -82,6 +82,64 @@
                 </div>
                 <p class="cms-status" data-social-status></p>
               </form>
+            </section>
+
+            <section class="cms-panel" aria-labelledby="corporate-pages-title">
+              <div class="cms-panel-head">
+                <div>
+                  <h2 id="corporate-pages-title">Corporate pages</h2>
+                  <p>Legal and CSR content in one editorial format.</p>
+                </div>
+                <button type="button" class="secondary-button" data-reset-corporate-pages>Reset</button>
+              </div>
+              <form class="cms-form" data-corporate-page-form>
+                <label>
+                  <span>Page</span>
+                  <select name="slug">
+                    <option value="terms">Terms &amp; Conditions</option>
+                    <option value="privacy">Privacy</option>
+                    <option value="disclaimer">Disclaimer</option>
+                    <option value="cookies">Cookies</option>
+                    <option value="csr">Corporate Social Responsibility</option>
+                  </select>
+                </label>
+                <div class="field-grid">
+                  <label>
+                    <span>Status</span>
+                    <select name="status">
+                      <option>Draft</option>
+                      <option>Review</option>
+                      <option>Published</option>
+                    </select>
+                  </label>
+                  <label>
+                    <span>Last updated</span>
+                    <input type="date" name="updatedAt">
+                  </label>
+                </div>
+                <label>
+                  <span>Title</span>
+                  <input name="title" required>
+                </label>
+                <label>
+                  <span>Introduction</span>
+                  <textarea name="intro" rows="3"></textarea>
+                </label>
+                <label>
+                  <span>Body</span>
+                  <textarea name="body" rows="9"></textarea>
+                </label>
+                <label>
+                  <span>SEO description</span>
+                  <textarea name="seoDescription" rows="2"></textarea>
+                </label>
+                <div class="cms-actions">
+                  <button type="submit" class="primary-button">Save page</button>
+                  <a class="secondary-button" href="legal.html">Preview hub</a>
+                </div>
+                <p class="cms-status" data-corporate-page-status></p>
+              </form>
+              <div class="corporate-page-list" data-corporate-page-list></div>
             </section>
           </div>
 
@@ -195,6 +253,6 @@
     </main>
 
     <script src="script.js?v=25"></script>
-    <script src="cms.js?v=25"></script>
+    <script src="cms.js?v=26"></script>
   </body>
 </html>
