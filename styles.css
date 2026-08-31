@@ -772,6 +772,11 @@ h3 {
   background: var(--gold);
 }
 
+.primary-button:disabled {
+  cursor: wait;
+  opacity: 0.62;
+}
+
 .article-desk {
   margin-top: 28px;
 }
@@ -1045,6 +1050,14 @@ h3 {
   display: grid;
   gap: 24px;
   margin-top: 38px;
+}
+
+.form-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .contact-form label > span {

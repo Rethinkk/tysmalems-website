@@ -86,17 +86,29 @@ const contactStatus = document.querySelector("[data-contact-status]");
 contactForm?.addEventListener("submit", (event) => {
   event.preventDefault();
   const formData = new FormData(contactForm);
-  const subject = `Website message from ${formData.get("name") || "client"}`;
-  const body = [
-    `Name: ${formData.get("name") || ""}`,
-    `Company: ${formData.get("company") || ""}`,
-    `E-mail: ${formData.get("email") || ""}`,
-    `Telephone: ${formData.get("phone") || ""}`,
-    `Country: ${formData.get("country") || ""}`,
-    "",
-    String(formData.get("message") || ""),
-  ].join("\n");
+  const payload = Object.fromEntries(formData.entries());
+  const submitButton = contactForm.querySelector('button[type="submit"]');
 
-  contactStatus.textContent = "Opening your e-mail application.";
-  window.location.href = `mailto:info@tysmalems.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  if (contactStatus) contactStatus.textContent = "Sending your message.";
+  if (submitButton) submitButton.disabled = true;
+
+  fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  })
+    .then(async (response) => {
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data.message || "The message could not be sent.");
+      }
+      contactForm.reset();
+      if (contactStatus) contactStatus.textContent = "Thank you. Your message has been sent.";
+    })
+    .catch((error) => {
+      if (contactStatus) contactStatus.textContent = error.message;
+    })
+    .finally(() => {
+      if (submitButton) submitButton.disabled = false;
+    });
 });
