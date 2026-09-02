@@ -164,10 +164,10 @@ i. Tysma Lems Tax Advisors has appointed Andre Kievit as the person responsible 
     label: "Disclaimer",
     title: "Disclaimer",
     intro: "Important notes about the information provided on this website.",
-    body: "This page is reserved for the current disclaimer of Tysma | Lems.\n\nUse the CMS to clarify that website information is general in nature and does not replace advice tailored to a specific situation.",
+    body: "TYSMALEMS.COM\n\nTysma | Lems does its utmost best to keep the website as up to date as possible. However, despite the love and care we put into the website, it is always possible that the content is not current or up to date. Tysma | Lems is not liable for errors and/or omissions in the content of the website.\n\nRegarding product and service information the following applies: you cannot claim a binding agreement or booking in case of an obvious typo and/or programming error.\n\nThe content of the website, including images, logos, photography and videos are subject to intellectual property rights. These rights are vested in Tysma | Lems or its licensors. You are not allowed to copy or (re)publish the content without prior written permission of Tysma | Lems.",
     seoDescription: "Website disclaimer for Tysma | Lems.",
     status: "Published",
-    updatedAt: "2026-08-31",
+    updatedAt: "2026-09-02",
   },
   {
     slug: "cookies",
@@ -210,8 +210,10 @@ function getCorporatePages() {
 function currentPageFor(fallbackPage, pages) {
   const savedPage = pages.find((page) => page.slug === fallbackPage.slug);
   if (
-    fallbackPage.slug === "privacy" &&
-    String(savedPage?.body || "").includes("This page is reserved for the current privacy statement")
+    (fallbackPage.slug === "privacy" &&
+      String(savedPage?.body || "").includes("This page is reserved for the current privacy statement")) ||
+    (fallbackPage.slug === "disclaimer" &&
+      String(savedPage?.body || "").includes("This page is reserved for the current disclaimer"))
   ) {
     return null;
   }
