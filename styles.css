@@ -1065,6 +1065,27 @@ h3 {
   line-height: 1.45;
 }
 
+.contact-company-details {
+  margin-top: 34px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.contact-company-details h2 {
+  margin: 0 0 16px;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.contact-company-details p {
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
 .contact-divider {
   grid-column: 1 / -1;
   height: 1px;
