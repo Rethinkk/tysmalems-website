@@ -4,12 +4,100 @@ const defaultCorporatePages = [
   {
     slug: "terms",
     label: "Terms & Conditions",
-    title: "Terms & Conditions",
+    title: "General Terms and Conditions",
     intro: "The terms under which Tysma | Lems provides information through this website and, where applicable, professional services.",
-    body: "This page is reserved for the current Terms & Conditions of Tysma | Lems.\n\nUse the CMS to add the full legal wording, update the effective date and keep the published version aligned with the firm's current engagement terms.",
+    body: `TYSMALEMS.COM
+
+## About these General Terms and Conditions and the nature of Our services
+
+These General Terms and Conditions are applicable to: the use of Our Website by You and the Requested Service.
+
+The Requested Service can be rendered by an Internal Professional, an External Professional or a combination thereof. In case the Service is rendered by an Internal Professional, the Agreement is concluded between You and Us. In case the Service is rendered by an External Professional: (i) the Agreement is concluded between You and the External Professional in case the External Professional is a sole proprietor or with the External Service Provider; (ii) We invoice the rendered Service(s) on behalf of External Professional and/or External Service Provider; and (iii) that the general terms and conditions of the External Service Provider, respectively, the External Service Provider apply. During the online process of requesting a Service, We notify You regarding who is going to render the Service, and which additional general terms and conditions may apply.
+
+The Agreement is only definitive in case the Requested Service was confirmed by Us, External Professional or External Service Provider.
+
+We will process Your personal data in accordance with applicable legislation and with Our privacy policy.
+
+You hereby warrant that the data You enter during the registration process on Our Website is valid and true. You indemnify Us for possible claims regarding non-valid or untrue data.
+
+## Your responsibility
+
+It is Your responsibility to ensure that You deliver or enter the right data and/or documents when You are requested to do so by Us or a Professional. You hereby warrant that the aforementioned data and/or documents are valid and true. You indemnify Us for possible claims regarding non-valid or untrue data and documents.
+
+When requested by a Professional do to check a by the Professional prepared tax return or other documents, it is Your responsibility to check whether the tax return or the other documents are correctly prepared and/or processed, to the extend You are able to judge it taking the subject matter into consideration.
+
+## Our responsibilities
+
+We ensure that all our External Profesionals and/or or External Service Providers have a professional indemnity insurance in place, which has a coverage for at least € 1.000.000 (one million Euros).
+
+We render the agreed upon Services in a professional manner and with great due care.
+
+We will not disclose Your personal data and documents to third parties other than the dedicated Internal Professional, External Professional or External Service Provider. This non-dislosure obligation does not apply in case We have to disclose due to court order or government decree.
+
+Since we are located within the E.U., We cannot transfer Your personal data to an External Professional or External Service Provider outside the E.U. or the E.E.R. without the country wherein the External Professional or External Service Provider is located, having an adequate level of protection regarding personal data. In case We are not sure, We will ask Your to provide the designated External Professional or External Service provider, with Your appropriate data and/or documents Yourself. With all Our External Professionals and/or External Service Providers, We have concluded a data processing agreement.
+
+## Payment
+
+The prices We show on Our Website are always including V.A.T. and/or sales tax.
+
+The price for the Service is paid through an online payment service provider, this online payment service provider lets You pay the amount due, inter alia, with credit card, Paypal and iDEAL. In case You use a credit card, We will not charge You until the Service is completely rendered, however, we may keep the amount due, reserved on Your credit card. Additional Service will be invoiced separately, in which case the invoice must be paid within seven (7) days after issue date. We may ask you for an advance prior to rendering the agreed upon Service(s).
+
+In case You are a Consumer, We are not obliged to hand out an invoice. However, We do understand that in some cases You would like to get the paid amount reimbursed by a third party, for example by the company You work for. Upon first request We hand You out an invoice. This all without prejudice to what is stated in paragraph 1.2 regarding the nature of Our services. For the invoice we may charge You the actual costs.
+
+## Cancellation
+
+The (E.U.-)right of withdrawal is not applicable since You, during the online process of requesting a Service, You gave Us permission to immediately start with executing the Service (after confirmation by Us).
+
+The (E.U.-)right of withdrawal is not applicable in case You are a Consumer.
+
+## Limitation of liability
+
+WE ARE NOT LIABLE FOR YOUR DAMAGES CAUSED BY ANY ATTRIBUTABLE SHORTCOMING IN THE FULFILMENT OF THE AGREEMENT (BREACH), NOR FOR YOUR DAMAGES CAUSED BY ANY OTHER SHORTCOMING (BASED ON TORT FOR EXAMPLE), UNLESS THE SHORTCOMING IS DUE TO WILLFUL INTENT OR CONSCIOUS RECKLESSNESS OF OUR TOP LEVEL MANAGEMENT. IN CASE THIS LIMITATION OF LIABILITY IS LAWFULLY UNENFORCEABLE, THE LIABILITY FOR THE AFOREMENTIONED SHORTCOMINGS ARE LIMITED TO AN AMOUNT OF € 1.000 (THOUSAND EUROS), UNLESS THE SHORTCOMING IS DUE TO WILLFUL INTENT OR CONSCIOUS RECKLESSNESS OF OUR TOP LEVEL MANAGEMENT.
+
+IN CASE THE SERVICE IS RENDERED BY AN EXTERNAL PROFESSIONAL AND/OR EXTERNAL SERVICE PROVIDER, WE ARE NOT LIABLE FOR AN ATTRIBUTABLE SHORTCOMING OF THE EXTERNAL PROFESSIONAL AND/OR EXTERNAL SERVICE PROVIDER, NOR FOR YOUR DAMAGES CAUSED BY ANY OTHER SHORTCOMING (BASED ON TORT FOR EXAMPLE) OF THE EXTERNAL PROFESSIONAL AND/OR EXTERNAL SERVICE PROVIDER, SINCE THE AGREEMENT IN THAT CASE IS CONCLUDED BETWEEN YOU AND THE EXTERNAL PROFESSIONAL OR EXTERNAL SERVICE PROVIDER. IN CASE THIS LIMITATION OF LIABILITY IS LAWFULLY UNENFORCEABLE, OUR LIABILITY FOR THE AFOREMENTIONED SHORTCOMINGS ARE LIMITED TO THE AMOUNT WE CAN GET BACK FROM THE EXTERNAL PROFESSIONAL AND/OR EXTERNAL SERVICE PROVIDER UNDER ITS PROFESSIONAL INDEMNITY INSURANCE.
+
+You hereby accept the functionality of the Website “as is”. Furthermore, You accept that the functionality of the Website can be subject of unilateral change.
+
+We strive for a high availability of the Website, however, we cannot warrant that the Website is always available without interruptions.
+
+We compose Our Website with great due care. However, errors and omissions may occur. WE ARE NOT LIABLE FOR DAMAGES DUE TO ERRORS OR OMISSIONS IN ON THE WEBSITE PROVIDED INFORMATION, FOR OTHER ERRORS AND OMISSIONS WHAT IS STATED IN PARAGRAPH 6.1 APPLIES MUTATIS MUTANDIS.
+
+## Governing law and dispute resolution
+
+The service ordering is governed by the laws of the Netherlands.
+
+All disputes will be settled exclusively by the competent court in Rotterdam, the Netherlands, unless the sub-district court ("kantonrechter") is allowed to take notice of the dispute, in that case the dispute will be submitted to competent sub-district court. You have the right to submit a dispute to a by virtue of the Laws of the Netherlands competent court within 30 (thirty) days after We invoke the right to submit the dispute in accordance with the first sentence of this paragraph.
+
+## Definitions
+
+In these Terms and Conditions some words or word combinations start with a capital letter. Those words or word combinations have the meaning as set out in this paragraph, regardless whether the words or word combinations are used in singular or plural form.
+
+Agreement: the agreement for a Service between You and Us or between You and External Professional or External Service Provider.
+
+Consumer: a person not acting in the course of a profession or business.
+
+External Professional: an external Professional who works for another company or is sole proprietor, and is therefore not an employee of Us.
+
+External Service Provider: the employer of External Professional in case External Professional is not a sole proprietor.
+
+General Terms and Conditions: these general terms and conditions.
+
+Internal Professional: a Professional who works for Us and is therefore an employee of Us.
+
+Professional: a legal or tax professional executing the Requested Service.
+
+Requested Service: the request You make for a certain Service on Our Website.
+
+Service: support with tax return(s), social security checks, quick scan contractual employment entitlements or any other service We may offer You through Our Website.
+
+You: you (might also be used as your in case We need to refer to you possessively)
+
+We: the Dutch limited liability company “Tysma | Lems International tax consultants.”, registered under number 24257549 at the Chamber of Commerce in Rotterdam, the Netherlands (might also be used as our(s) in case we need to refer to us possessively, or might be used as us, in case we need to refer to us as an indirect object).
+
+Website: Our website accessible at the URL https://www.tysmalems.com`,
     seoDescription: "Terms and conditions for Tysma | Lems.",
     status: "Published",
-    updatedAt: "2026-08-31",
+    updatedAt: "2026-09-02",
   },
   {
     slug: "privacy",
@@ -210,6 +298,8 @@ function getCorporatePages() {
 function currentPageFor(fallbackPage, pages) {
   const savedPage = pages.find((page) => page.slug === fallbackPage.slug);
   if (
+    (fallbackPage.slug === "terms" &&
+      String(savedPage?.body || "").includes("This page is reserved for the current Terms")) ||
     (fallbackPage.slug === "privacy" &&
       String(savedPage?.body || "").includes("This page is reserved for the current privacy statement")) ||
     (fallbackPage.slug === "disclaimer" &&
