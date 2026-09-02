@@ -465,7 +465,7 @@ function getArticles() {
       featuredRank: 1,
       publishToLinkedIn: true,
       publicShareEnabled: true,
-      heroMedia: "",
+      heroMedia: "box-3-fd-2026.jpg",
       seoDescription: "Tysma | Lems deelt een FD krantenbericht over de status van de inrichting van box 3 door de wetgevers.",
     },
   ];

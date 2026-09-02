@@ -16,7 +16,7 @@ const defaultArticles = [
     featuredRank: 1,
     publishToLinkedIn: true,
     publicShareEnabled: true,
-    heroMedia: "",
+    heroMedia: "box-3-fd-2026.jpg",
     seoDescription: "Tysma | Lems deelt een FD krantenbericht over de status van de inrichting van box 3 door de wetgevers.",
   },
 ];
@@ -223,6 +223,11 @@ function renderArticlePage() {
   setMeta("og:description", article.socialDescription || article.standfirst, "property");
   setMeta("og:type", "article", "property");
   setMeta("og:url", canonicalArticleUrl(article), "property");
+  if (article.heroMedia) {
+    const imageUrl = article.heroMedia.startsWith("http") ? article.heroMedia : `${siteUrl}/${article.heroMedia}`;
+    setMeta("og:image", imageUrl, "property");
+    setMeta("twitter:image", imageUrl);
+  }
   setMeta("twitter:card", article.heroMedia ? "summary_large_image" : "summary");
   setMeta("twitter:title", article.socialTitle || article.title);
   setMeta("twitter:description", article.socialDescription || article.standfirst);
