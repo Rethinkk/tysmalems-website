@@ -16,15 +16,15 @@
   "rewrites": [
     {
       "source": "/journal",
-      "destination": "/insights.html"
+      "destination": "/insights"
     },
     {
       "source": "/journal/category/:category",
-      "destination": "/category.html?category=:category"
+      "destination": "/category"
     },
     {
       "source": "/journal/:slug",
-      "destination": "/article.html?slug=:slug"
+      "destination": "/article"
     }
   ],
   "headers": [
