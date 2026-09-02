@@ -1,6 +1,32 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/journal/international-lives-require-international-thinking",
+      "destination": "/journal/box-3-status-een-catch-22",
+      "permanent": true
+    },
+    {
+      "source": "/journal/international-lives-require-international-thinking/",
+      "destination": "/journal/box-3-status-een-catch-22",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/journal",
+      "destination": "/insights.html"
+    },
+    {
+      "source": "/journal/category/:category",
+      "destination": "/category.html?category=:category"
+    },
+    {
+      "source": "/journal/:slug",
+      "destination": "/article.html?slug=:slug"
+    }
+  ],
   "headers": [
     {
       "source": "/cms.html",
