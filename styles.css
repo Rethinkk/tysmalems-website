@@ -964,7 +964,34 @@ h3 {
   line-height: 1.75;
 }
 
-.legal-body p + p {
+.legal-body h2 {
+  margin: 42px 0 18px;
+  color: var(--blue);
+  font-size: clamp(26px, 3vw, 38px);
+  line-height: 1.08;
+}
+
+.legal-body h3 {
+  margin: 28px 0 12px;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.legal-body strong {
+  color: var(--blue);
+}
+
+.legal-body a {
+  color: var(--blue);
+  border-bottom: 1px solid var(--gold);
+}
+
+.legal-body p + p,
+.legal-body p + h2,
+.legal-body p + h3 {
   margin-top: 28px;
 }
 
