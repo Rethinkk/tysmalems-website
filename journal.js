@@ -4,7 +4,7 @@ const defaultArticles = [
     journalNumber: "001",
     title: "Box 3 status: een catch 22",
     slug: "box-3-status-een-catch-22",
-    standfirst: "Werkgevers, pensioenfondsen, verzekeringsmaatschappijen en andere bedrijven hebben duidelijkheid nodig van de wetgever over de definitieve invulling van box 3. Dan krijg je een catch 22.",
+    standfirst: "Wat gebeurt er als de wetgever de support nodig heeft van de ICT afdelingen van de belastingdienst, banken, vermogensbeheerders, crypto bedrijven, beleggingsfondsen en verzekeringsmaatschappijen en deze bedrijven op hun beurt duidelijkheid nodig hebben van de wetgever over de definitieve invulling van box 3. Dan krijg je een catch 22.",
     body: "Hoe graag zowel de wetgever als haar stakeholders tot een definitieve invulling van box 3 willen overgaan is de catch22 maar moeilijk te doorbreken. De wetgever heeft te maken met bezwaren die letterlijk bij elke invulling boven komen drijven en maar moeilijk te negeren zijn.\n\nDe stakeholders die hun systemen aan moeten passen aan de uiteindelijke keuze van de wetgever hebben niet de mogelijkheid om alvast 80 of 90% van de oplossing klaar te zetten. Dat is geen onwil maar de feitelijke werking van software en ICT infrastructuren.\n\nDeze catch 22 is niet weg met een vuist op tafel.",
     category: "International Tax",
     tags: ["box 3", "vermogensbeheer", "vermogensbelasting", "vermogenswinstbelasting", "vermogensrendementsheffing"],
@@ -67,7 +67,21 @@ function setStructuredData(id, data) {
 function getArticles() {
   const saved = JSON.parse(localStorage.getItem("tlJournalArticles") || "null");
   if (!Array.isArray(saved) || saved.length === 0) return defaultArticles;
-  return saved.map((article) => article.slug === "international-lives-require-international-thinking" ? defaultArticles[0] : article);
+  return dedupeArticles(saved.map((article) => {
+    if (article.slug === "international-lives-require-international-thinking") return defaultArticles[0];
+    if (article.slug === "box-3-status-een-catch-22") return { ...defaultArticles[0], ...article };
+    return article;
+  }));
+}
+
+function dedupeArticles(articles) {
+  const seen = new Set();
+  return articles.filter((article) => {
+    const key = article.slug || article.id;
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 function publishedArticles() {
