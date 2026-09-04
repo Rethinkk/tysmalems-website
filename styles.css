@@ -1030,6 +1030,12 @@ h3 {
   text-transform: uppercase;
 }
 
+@media (min-width: 901px) {
+  .expertise-topic-group h2 {
+    min-height: 3.24em;
+  }
+}
+
 .expertise-topic-group ul {
   list-style: none;
   margin: 24px 0 0;
