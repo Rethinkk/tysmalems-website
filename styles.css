@@ -989,6 +989,88 @@ h3 {
   border-bottom: 1px solid var(--gold);
 }
 
+.expertise-page {
+  min-height: 62vh;
+}
+
+.expertise-intro {
+  max-width: 760px;
+  margin: 24px 0 0;
+  color: var(--muted);
+  font-size: clamp(20px, 2.4vw, 28px);
+  line-height: 1.42;
+}
+
+.expertise-index {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(32px, 4.8vw, 72px);
+  margin-top: clamp(56px, 8vw, 100px);
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+
+.expertise-topic-group {
+  min-width: 0;
+}
+
+.expertise-rule {
+  display: block;
+  width: 54px;
+  height: 2px;
+  margin-bottom: 24px;
+  background: var(--gold);
+}
+
+.expertise-topic-group h2 {
+  color: var(--blue);
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: 700;
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+
+.expertise-topic-group ul {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+}
+
+.expertise-topic-group li {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+.expertise-topic-group li + li {
+  margin-top: 12px;
+}
+
+.expertise-closing {
+  max-width: 680px;
+  margin-top: clamp(70px, 10vw, 130px);
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+
+.expertise-closing h2 {
+  color: var(--blue);
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.08;
+  text-transform: uppercase;
+}
+
+.expertise-closing p {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.expertise-closing .text-link {
+  display: inline-block;
+  margin-top: 24px;
+}
+
 .legal-body p + p,
 .legal-body p + h2,
 .legal-body p + h3 {
@@ -1407,6 +1489,7 @@ h3 {
   .corporate-page-row,
   .legal-page-grid,
   .legal-hub-list,
+  .expertise-index,
   .footer-inner,
   .footer-info-grid {
     grid-template-columns: 1fr;
@@ -1470,6 +1553,10 @@ h3 {
     max-width: 280px;
   }
 
+  .expertise-index {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .approach-image {
     min-height: 380px;
   }
@@ -1519,6 +1606,26 @@ h3 {
 
   .contact-divider {
     margin: 42px 0 38px;
+  }
+
+  .expertise-index {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 48px;
+  }
+
+  .expertise-topic-group {
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .expertise-topic-group:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .expertise-topic-group li {
+    font-size: 16px;
   }
 
   .footer-inner {

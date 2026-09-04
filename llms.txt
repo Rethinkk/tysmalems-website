@@ -7,6 +7,7 @@ The firm advises globally mobile professionals, maritime professionals, internat
 
 - Home: https://www.tysmalems.com/
 - Approach: https://www.tysmalems.com/approach/
+- Expertise: https://www.tysmalems.com/expertise/
 - Journal: https://www.tysmalems.com/journal/
 - Contact: https://www.tysmalems.com/contact/
 
@@ -22,6 +23,7 @@ The firm advises globally mobile professionals, maritime professionals, internat
 
 The Journal contains thoughts, observations and perspectives on international lives.
 Core topics include international tax, maritime tax matters, global mobility, cross-border workers, expatriates, private clients, entrepreneurs, investors, succession, social security and internationally mobile families.
+The Expertise page provides a practical editorial index of cross-border tax matters including working across borders, moving across borders, international business, and personal wealth.
 
 ## Crawl Policy
 
