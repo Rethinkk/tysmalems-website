@@ -8,10 +8,7 @@ const fallbackApproachHeroImages = [
   { id: "approach-private", src: "hero-private-clients.png", name: "Private clients" },
 ];
 const fallbackSocialLinks = [
-  { id: "linkedin", label: "LinkedIn", shortLabel: "in", url: "" },
-  { id: "instagram", label: "Instagram", shortLabel: "ig", url: "" },
-  { id: "x", label: "X", shortLabel: "x", url: "" },
-  { id: "facebook", label: "Facebook", shortLabel: "f", url: "" },
+  { id: "linkedin", label: "LinkedIn", shortLabel: "in", url: "https://www.linkedin.com/company/3201828/" },
 ];
 const fallbackCorporatePages = [
   {
@@ -361,7 +358,7 @@ function getSocialLinks() {
   const savedLinks = readJson(socialLinksKey, fallbackSocialLinks);
   return fallbackSocialLinks.map((fallbackLink) => ({
     ...fallbackLink,
-    url: savedLinks.find((link) => link.id === fallbackLink.id)?.url || "",
+    url: savedLinks.find((link) => link.id === fallbackLink.id)?.url || fallbackLink.url,
   }));
 }
 

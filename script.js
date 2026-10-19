@@ -7,10 +7,7 @@ const defaultApproachHeroImages = [
   { id: "approach-private", src: "hero-private-clients.png", alt: "Private clients" },
 ];
 const defaultSocialLinks = [
-  { id: "linkedin", label: "LinkedIn", shortLabel: "in", url: "" },
-  { id: "instagram", label: "Instagram", shortLabel: "ig", url: "" },
-  { id: "x", label: "X", shortLabel: "x", url: "" },
-  { id: "facebook", label: "Facebook", shortLabel: "f", url: "" },
+  { id: "linkedin", label: "LinkedIn", shortLabel: "in", url: "https://www.linkedin.com/company/3201828/" },
 ];
 
 function syncHeader() {
@@ -58,7 +55,10 @@ document.querySelectorAll("[data-hero-slides]").forEach((heroSlides) => {
 
 document.querySelectorAll(".social-links").forEach((socialLinks) => {
   const savedSocialLinks = JSON.parse(localStorage.getItem("tlSocialLinks") || "null");
-  const links = Array.isArray(savedSocialLinks) ? savedSocialLinks : defaultSocialLinks;
+  const savedLinkedIn = Array.isArray(savedSocialLinks)
+    ? savedSocialLinks.find((link) => link.id === "linkedin")
+    : null;
+  const links = [{ ...defaultSocialLinks[0], url: savedLinkedIn?.url || defaultSocialLinks[0].url }];
   const activeLinks = links.filter((link) => link.url);
 
   socialLinks.innerHTML = (activeLinks.length > 0 ? activeLinks : defaultSocialLinks)
