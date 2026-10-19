@@ -7,7 +7,7 @@ const defaultApproachHeroImages = [
   { id: "approach-private", src: "hero-private-clients.png", alt: "Private clients" },
 ];
 const defaultSocialLinks = [
-  { id: "linkedin", label: "LinkedIn", shortLabel: "in", url: "https://www.linkedin.com/company/3201828/" },
+  { id: "linkedin", label: "LinkedIn", shortLabel: "in", url: "https://www.linkedin.com/company/tysma-lems-international-tax-consultants" },
 ];
 
 function syncHeader() {
@@ -58,7 +58,8 @@ document.querySelectorAll(".social-links").forEach((socialLinks) => {
   const savedLinkedIn = Array.isArray(savedSocialLinks)
     ? savedSocialLinks.find((link) => link.id === "linkedin")
     : null;
-  const links = [{ ...defaultSocialLinks[0], url: savedLinkedIn?.url || defaultSocialLinks[0].url }];
+  const savedUrl = savedLinkedIn?.url;
+  const links = [{ ...defaultSocialLinks[0], url: savedUrl && !/^https:\/\/www\.linkedin\.com\/company\/3201828\/?$/.test(savedUrl) ? savedUrl : defaultSocialLinks[0].url }];
   const activeLinks = links.filter((link) => link.url);
 
   socialLinks.innerHTML = (activeLinks.length > 0 ? activeLinks : defaultSocialLinks)

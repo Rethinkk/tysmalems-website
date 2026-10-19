@@ -8,7 +8,7 @@ const fallbackApproachHeroImages = [
   { id: "approach-private", src: "hero-private-clients.png", name: "Private clients" },
 ];
 const fallbackSocialLinks = [
-  { id: "linkedin", label: "LinkedIn", shortLabel: "in", url: "https://www.linkedin.com/company/3201828/" },
+  { id: "linkedin", label: "LinkedIn", shortLabel: "in", url: "https://www.linkedin.com/company/tysma-lems-international-tax-consultants" },
 ];
 const fallbackCorporatePages = [
   {
@@ -358,7 +358,7 @@ function getSocialLinks() {
   const savedLinks = readJson(socialLinksKey, fallbackSocialLinks);
   return fallbackSocialLinks.map((fallbackLink) => ({
     ...fallbackLink,
-    url: savedLinks.find((link) => link.id === fallbackLink.id)?.url || fallbackLink.url,
+    url: savedLinks.find((link) => link.id === fallbackLink.id && link.url && !/^https:\/\/www\.linkedin\.com\/company\/3201828\/?$/.test(link.url))?.url || fallbackLink.url,
   }));
 }
 
