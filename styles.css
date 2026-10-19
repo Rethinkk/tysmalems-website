@@ -158,16 +158,6 @@ img {
   opacity: 1;
 }
 
-[data-hero-slides="home"] .hero-image[src="hero-yacht-crew.jpg"] {
-  object-position: center;
-}
-
-@media (max-width: 600px) {
-  [data-hero-slides="home"] .hero-image[src="hero-yacht-crew.jpg"] {
-    object-position: 25% center;
-  }
-}
-
 .hero-shade {
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(23, 57, 74, 0.18)),

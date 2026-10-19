@@ -1,13 +1,7 @@
-const heroKey = "tlHeroImages";
 const approachHeroKey = "tlApproachHeroImages";
 const socialLinksKey = "tlSocialLinks";
 const articlesKey = "tlJournalArticles";
 const corporatePagesKey = "tlCorporatePages";
-const fallbackHeroImages = [
-  { id: "maritime", src: "hero-maritime.png", name: "Maritime" },
-  { id: "global-mobility", src: "hero-london.jpg", name: "International life in London" },
-  { id: "private-clients", src: "hero-yacht-crew.jpg", name: "International yacht crew" },
-];
 const fallbackApproachHeroImages = [
   { id: "approach-room", src: "approach.png", name: "Approach interior" },
   { id: "approach-global", src: "hero-global-mobility.png", name: "International perspective" },
@@ -298,9 +292,6 @@ i. Tysma Lems Tax Advisors has appointed Andre Kievit as the person responsible 
   },
 ];
 
-const manager = document.querySelector("[data-hero-manager]");
-const upload = document.querySelector("[data-hero-upload]");
-const resetHero = document.querySelector("[data-reset-hero]");
 const approachManager = document.querySelector("[data-approach-hero-manager]");
 const approachUpload = document.querySelector("[data-approach-hero-upload]");
 const resetApproachHero = document.querySelector("[data-reset-approach-hero]");
@@ -321,14 +312,7 @@ let pendingArticleHero = "";
 
 function readJson(key, fallback) {
   const saved = JSON.parse(localStorage.getItem(key) || "null");
-  const items = Array.isArray(saved) ? saved : fallback;
-  return key === heroKey
-    ? items.map((image) => {
-      if (image.src === "hero-global-mobility.png") return { ...image, src: "hero-london.jpg", name: "International life in London" };
-      if (["hero-private-clients.png", "hero-station.jpg"].includes(image.src)) return { ...image, src: "hero-yacht-crew.jpg", name: "International yacht crew" };
-      return image;
-    })
-    : items;
+  return Array.isArray(saved) ? saved : fallback;
 }
 
 function saveJson(key, value) {
@@ -367,10 +351,6 @@ function renderMediaManager(element, key, fallback, removeAttribute) {
       </article>
     `)
     .join("");
-}
-
-function renderHeroManager() {
-  renderMediaManager(manager, heroKey, fallbackHeroImages, "data-remove-hero");
 }
 
 function renderApproachHeroManager() {
@@ -549,30 +529,6 @@ function fillForm(article) {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-manager.addEventListener("click", (event) => {
-  const button = event.target.closest("[data-remove-hero]");
-  if (!button) return;
-  const images = readJson(heroKey, fallbackHeroImages).filter((image) => image.id !== button.dataset.removeHero);
-  saveJson(heroKey, images);
-  renderHeroManager();
-});
-
-upload.addEventListener("change", async () => {
-  const file = upload.files[0];
-  if (!file) return;
-  const src = await readFileAsDataUrl(file);
-  const images = readJson(heroKey, fallbackHeroImages);
-  images.push({ id: crypto.randomUUID(), src, name: file.name });
-  saveJson(heroKey, images);
-  upload.value = "";
-  renderHeroManager();
-});
-
-resetHero.addEventListener("click", () => {
-  saveJson(heroKey, fallbackHeroImages);
-  renderHeroManager();
-});
-
 approachManager.addEventListener("click", (event) => {
   const button = event.target.closest("[data-remove-approach-hero]");
   if (!button) return;
@@ -706,7 +662,6 @@ desk.addEventListener("click", (event) => {
   }
 });
 
-renderHeroManager();
 renderApproachHeroManager();
 fillSocialForm();
 fillCorporatePageForm();
