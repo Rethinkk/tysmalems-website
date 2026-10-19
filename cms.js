@@ -6,7 +6,7 @@ const corporatePagesKey = "tlCorporatePages";
 const fallbackHeroImages = [
   { id: "maritime", src: "hero-maritime.png", name: "Maritime" },
   { id: "global-mobility", src: "hero-london.jpg", name: "International life in London" },
-  { id: "private-clients", src: "hero-station.jpg", name: "Liverpool Street Station" },
+  { id: "private-clients", src: "hero-yacht-crew.jpg", name: "International yacht crew" },
 ];
 const fallbackApproachHeroImages = [
   { id: "approach-room", src: "approach.png", name: "Approach interior" },
@@ -325,7 +325,7 @@ function readJson(key, fallback) {
   return key === heroKey
     ? items.map((image) => {
       if (image.src === "hero-global-mobility.png") return { ...image, src: "hero-london.jpg", name: "International life in London" };
-      if (image.src === "hero-private-clients.png") return { ...image, src: "hero-station.jpg", name: "Liverpool Street Station" };
+      if (["hero-private-clients.png", "hero-station.jpg"].includes(image.src)) return { ...image, src: "hero-yacht-crew.jpg", name: "International yacht crew" };
       return image;
     })
     : items;

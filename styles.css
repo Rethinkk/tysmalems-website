@@ -158,8 +158,14 @@ img {
   opacity: 1;
 }
 
-[data-hero-slides="home"] .hero-image[src="hero-station.jpg"] {
-  object-position: center 75%;
+[data-hero-slides="home"] .hero-image[src="hero-yacht-crew.jpg"] {
+  object-position: center;
+}
+
+@media (max-width: 600px) {
+  [data-hero-slides="home"] .hero-image[src="hero-yacht-crew.jpg"] {
+    object-position: 25% center;
+  }
 }
 
 .hero-shade {

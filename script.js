@@ -4,7 +4,7 @@ const nav = document.querySelector("[data-nav]");
 const defaultHeroImages = [
   { id: "maritime", src: "hero-maritime.png", alt: "Maritime target group" },
   { id: "global-mobility", src: "hero-london.jpg", alt: "International life in London" },
-  { id: "private-clients", src: "hero-station.jpg", alt: "Travellers at Liverpool Street Station" },
+  { id: "private-clients", src: "hero-yacht-crew.jpg", alt: "Yacht crew working along the marina quay" },
 ];
 const defaultApproachHeroImages = [
   { id: "approach-room", src: "approach.png", alt: "Approach interior" },
@@ -43,7 +43,7 @@ document.querySelectorAll("[data-hero-slides]").forEach((heroSlides) => {
     const images = (Array.isArray(savedHeroImages) && savedHeroImages.length > 0 ? savedHeroImages : defaultHeroImages)
       .map((image) => {
         if (image.src === "hero-global-mobility.png") return { ...image, src: "hero-london.jpg" };
-        if (image.src === "hero-private-clients.png") return { ...image, src: "hero-station.jpg" };
+        if (["hero-private-clients.png", "hero-station.jpg"].includes(image.src)) return { ...image, src: "hero-yacht-crew.jpg" };
         return image;
       });
 
