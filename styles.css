@@ -1385,6 +1385,12 @@ h3 {
   line-height: 1.45;
 }
 
+.footer-logo {
+  width: 144px;
+  height: auto;
+  margin-top: 24px;
+}
+
 .footer-mark {
   margin-bottom: 18px;
   color: var(--blue);
