@@ -1,6 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <title>TYSMA | LEMS</title>
-  <rect width="64" height="64" fill="#FFFFFF"/>
   <g fill="#00233F">
     <path d="M5 18h23v6h-8v22h-7V24H5z"/>
     <path d="M32 16h3v32h-3z"/>
