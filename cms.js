@@ -6,7 +6,7 @@ const corporatePagesKey = "tlCorporatePages";
 const fallbackHeroImages = [
   { id: "maritime", src: "hero-maritime.png", name: "Maritime" },
   { id: "global-mobility", src: "hero-london.jpg", name: "International life in London" },
-  { id: "private-clients", src: "hero-private-clients.png", name: "Private Clients" },
+  { id: "private-clients", src: "hero-station.jpg", name: "Liverpool Street Station" },
 ];
 const fallbackApproachHeroImages = [
   { id: "approach-room", src: "approach.png", name: "Approach interior" },
@@ -323,7 +323,11 @@ function readJson(key, fallback) {
   const saved = JSON.parse(localStorage.getItem(key) || "null");
   const items = Array.isArray(saved) ? saved : fallback;
   return key === heroKey
-    ? items.map((image) => image.src === "hero-global-mobility.png" ? { ...image, src: "hero-london.jpg", name: "International life in London" } : image)
+    ? items.map((image) => {
+      if (image.src === "hero-global-mobility.png") return { ...image, src: "hero-london.jpg", name: "International life in London" };
+      if (image.src === "hero-private-clients.png") return { ...image, src: "hero-station.jpg", name: "Liverpool Street Station" };
+      return image;
+    })
     : items;
 }
 

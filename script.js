@@ -4,7 +4,7 @@ const nav = document.querySelector("[data-nav]");
 const defaultHeroImages = [
   { id: "maritime", src: "hero-maritime.png", alt: "Maritime target group" },
   { id: "global-mobility", src: "hero-london.jpg", alt: "International life in London" },
-  { id: "private-clients", src: "hero-private-clients.png", alt: "Private clients target group" },
+  { id: "private-clients", src: "hero-station.jpg", alt: "Travellers at Liverpool Street Station" },
 ];
 const defaultApproachHeroImages = [
   { id: "approach-room", src: "approach.png", alt: "Approach interior" },
@@ -41,7 +41,11 @@ document.querySelectorAll("[data-hero-slides]").forEach((heroSlides) => {
   if (heroSlides.dataset.heroSlides === "home") {
     const savedHeroImages = JSON.parse(localStorage.getItem("tlHeroImages") || "null");
     const images = (Array.isArray(savedHeroImages) && savedHeroImages.length > 0 ? savedHeroImages : defaultHeroImages)
-      .map((image) => image.src === "hero-global-mobility.png" ? { ...image, src: "hero-london.jpg" } : image);
+      .map((image) => {
+        if (image.src === "hero-global-mobility.png") return { ...image, src: "hero-london.jpg" };
+        if (image.src === "hero-private-clients.png") return { ...image, src: "hero-station.jpg" };
+        return image;
+      });
 
     heroSlides.innerHTML = images
       .map((image, index) => `<img src="${image.src}" alt="" class="hero-image${index === 0 ? " is-active" : ""}">`)
