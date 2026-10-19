@@ -3,7 +3,7 @@ const menuButton = document.querySelector("[data-menu-button]");
 const nav = document.querySelector("[data-nav]");
 const defaultHeroImages = [
   { id: "maritime", src: "hero-maritime.png", alt: "Maritime target group" },
-  { id: "global-mobility", src: "hero-global-mobility.png", alt: "Global mobility target group" },
+  { id: "global-mobility", src: "hero-london.jpg", alt: "International life in London" },
   { id: "private-clients", src: "hero-private-clients.png", alt: "Private clients target group" },
 ];
 const defaultApproachHeroImages = [
@@ -40,7 +40,8 @@ window.addEventListener("scroll", syncHeader, { passive: true });
 document.querySelectorAll("[data-hero-slides]").forEach((heroSlides) => {
   if (heroSlides.dataset.heroSlides === "home") {
     const savedHeroImages = JSON.parse(localStorage.getItem("tlHeroImages") || "null");
-    const images = Array.isArray(savedHeroImages) && savedHeroImages.length > 0 ? savedHeroImages : defaultHeroImages;
+    const images = (Array.isArray(savedHeroImages) && savedHeroImages.length > 0 ? savedHeroImages : defaultHeroImages)
+      .map((image) => image.src === "hero-global-mobility.png" ? { ...image, src: "hero-london.jpg" } : image);
 
     heroSlides.innerHTML = images
       .map((image, index) => `<img src="${image.src}" alt="" class="hero-image${index === 0 ? " is-active" : ""}">`)
