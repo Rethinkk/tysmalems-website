@@ -18,7 +18,7 @@ const fallbackCorporatePages = [
     slug: "terms",
     label: "Terms & Conditions",
     title: "General Terms and Conditions",
-    intro: "The terms under which Tysma | Lems provides information through this website and, where applicable, professional services.",
+    intro: "The terms under which TYSMA | LEMS provides information through this website and, where applicable, professional services.",
     body: `TYSMALEMS.COM
 
 ## About these General Terms and Conditions and the nature of Our services
@@ -105,10 +105,10 @@ Service: support with tax return(s), social security checks, quick scan contract
 
 You: you (might also be used as your in case We need to refer to you possessively)
 
-We: the Dutch limited liability company “Tysma | Lems International tax consultants.”, registered under number 24257549 at the Chamber of Commerce in Rotterdam, the Netherlands (might also be used as our(s) in case we need to refer to us possessively, or might be used as us, in case we need to refer to us as an indirect object).
+We: the Dutch limited liability company “TYSMA | LEMS.”, registered under number 24257549 at the Chamber of Commerce in Rotterdam, the Netherlands (might also be used as our(s) in case we need to refer to us possessively, or might be used as us, in case we need to refer to us as an indirect object).
 
 Website: Our website accessible at the URL https://www.tysmalems.com`,
-    seoDescription: "Terms and conditions for Tysma | Lems.",
+    seoDescription: "Terms and conditions for TYSMA | LEMS.",
     status: "Published",
     updatedAt: "2026-09-02",
   },
@@ -116,8 +116,8 @@ Website: Our website accessible at the URL https://www.tysmalems.com`,
     slug: "privacy",
     label: "Privacy",
     title: "Privacy Statement",
-    intro: "How Tysma Lems Tax Advisors handles personal data shared through this website and in professional contact with the firm.",
-    body: `**Tysma Lems Tax Advisors**
+    intro: "How TYSMA | LEMS handles personal data shared through this website and in professional contact with the firm.",
+    body: `**TYSMA | LEMS**
 tysmalems.com
 Veerhaven 4
 3016 CJ Rotterdam
@@ -128,9 +128,9 @@ The Netherlands
 
 ### A. Privacy
 
-i. Tysma Lems Tax Advisors takes your privacy seriously. We process your personal data when you use our website or our services, or because you provide this information to us yourself.
+i. TYSMA | LEMS takes your privacy seriously. We process your personal data when you use our website or our services, or because you provide this information to us yourself.
 
-ii. Within the meaning of the General Data Protection Regulation (GDPR), Tysma Lems Tax Advisors is the data controller.
+ii. Within the meaning of the General Data Protection Regulation (GDPR), TYSMA | LEMS is the data controller.
 
 ### B. Summary
 
@@ -140,7 +140,7 @@ a. The purposes for which we process your personal data;
 b. The personal data we may process;
 c. How long we retain your personal data;
 d. Which processors and/or sub-processors we use when processing your personal data;
-e. Your rights under the GDPR in relation to the processing of your personal data by Tysma Lems Tax Advisors; and
+e. Your rights under the GDPR in relation to the processing of your personal data by TYSMA | LEMS; and
 f. The measures we take to protect your personal data.
 
 ## 2. Personal data we process
@@ -161,7 +161,7 @@ ix. Internet browser and device type
 
 ### A. Minors
 
-i. Our website and services are not intended to collect data relating to website visitors under the age of 16, unless written permission has been provided by a parent or legal guardian. Tysma Lems Tax Advisors cannot verify whether a visitor is over the age of 16. We therefore encourage parents to be involved in their children’s online activities. In this way, we can help prevent personal data relating to children from being collected without parental consent.
+i. Our website and services are not intended to collect data relating to website visitors under the age of 16, unless written permission has been provided by a parent or legal guardian. TYSMA | LEMS cannot verify whether a visitor is over the age of 16. We therefore encourage parents to be involved in their children’s online activities. In this way, we can help prevent personal data relating to children from being collected without parental consent.
 
 ### B. Contact us if you suspect an error
 
@@ -169,7 +169,7 @@ i. If you believe that we have collected personal data relating to a minor witho
 
 ## 4. Why we need your data and how long we retain it
 
-### A. Tysma Lems Tax Advisors processes your personal data for the following purposes:
+### A. TYSMA | LEMS processes your personal data for the following purposes:
 
 i. To contact you by email where this is necessary for us to provide our services;
 ii. To provide you, upon request, with information following an enquiry submitted through our contact form; and
@@ -177,7 +177,7 @@ iii. To analyse your behaviour on our website in order to improve the website an
 
 ### B. Retention periods
 
-i. Tysma Lems Tax Advisors will not retain your personal data for longer than is strictly necessary to achieve the purposes for which your data is collected. If you would like information regarding the retention period applicable to your specific circumstances, please contact us at: [info@tysmalems.com](mailto:info@tysmalems.com).
+i. TYSMA | LEMS will not retain your personal data for longer than is strictly necessary to achieve the purposes for which your data is collected. If you would like information regarding the retention period applicable to your specific circumstances, please contact us at: [info@tysmalems.com](mailto:info@tysmalems.com).
 
 ## 5. Processing by third parties
 
@@ -187,7 +187,7 @@ i. Apart from any cookies we may use, as described in our Cookie Statement, the 
 
 ### A. Cookies
 
-i. Tysma Lems Tax Advisors uses cookies. Different types of cookies exist:
+i. TYSMA | LEMS uses cookies. Different types of cookies exist:
 
 a. **Strictly necessary cookies:** These cookies are necessary for the website to function correctly from a technical perspective and to record your cookie preferences. Without these cookies, the website may not function properly and your cookie choices cannot be stored.
 
@@ -214,17 +214,17 @@ d. Request the deletion of your personal data;
 e. Have your personal data transferred to another party;
 f. Submit a complaint as further described in Article 8.
 
-ii. If you have any questions or comments regarding the processing of personal data by Tysma Lems Tax Advisors, please send your request to [info@tysmalems.com](mailto:info@tysmalems.com).
+ii. If you have any questions or comments regarding the processing of personal data by TYSMA | LEMS, please send your request to [info@tysmalems.com](mailto:info@tysmalems.com).
 
-iii. Tysma Lems Tax Advisors wishes to ensure that any request to access personal data is made by you. We therefore kindly ask you to include a copy of your identity document with any request for access, correction or deletion. To protect your privacy, Tysma Lems Tax Advisors asks you to redact your photograph, MRZ (machine-readable zone, the strip containing numbers at the bottom of the passport), passport number and Dutch Citizen Service Number (BSN) from this copy.
+iii. TYSMA | LEMS wishes to ensure that any request to access personal data is made by you. We therefore kindly ask you to include a copy of your identity document with any request for access, correction or deletion. To protect your privacy, TYSMA | LEMS asks you to redact your photograph, MRZ (machine-readable zone, the strip containing numbers at the bottom of the passport), passport number and Dutch Citizen Service Number (BSN) from this copy.
 
-iv. Tysma Lems Tax Advisors will respond to your request as soon as possible and in any event within four weeks.
+iv. TYSMA | LEMS will respond to your request as soon as possible and in any event within four weeks.
 
 ## 8. Right to lodge a complaint
 
 ### A. Internal handling
 
-i. If you have a complaint regarding the manner in which your personal data is processed, Tysma Lems Tax Advisors will be pleased to work with you to resolve the matter. In the first instance, please submit your complaint to [info@tysmalems.com](mailto:info@tysmalems.com).
+i. If you have a complaint regarding the manner in which your personal data is processed, TYSMA | LEMS will be pleased to work with you to resolve the matter. In the first instance, please submit your complaint to [info@tysmalems.com](mailto:info@tysmalems.com).
 
 ### B. Dutch Data Protection Authority
 
@@ -237,26 +237,26 @@ https://autoriteitpersoonsgegevens.nl/nl/zelf-doen/privacyrechten/klacht-over-ge
 
 ### A. SSL
 
-i. To protect you as a website visitor, Tysma Lems Tax Advisors uses secure encryption technologies. SSL (Secure Socket Layer) is used to encrypt your personal data on our website, making it inaccessible to third parties. This ensures that your data is visible only to you and to our server.
+i. To protect you as a website visitor, TYSMA | LEMS uses secure encryption technologies. SSL (Secure Socket Layer) is used to encrypt your personal data on our website, making it inaccessible to third parties. This ensures that your data is visible only to you and to our server.
 
 ii. We use SSL encryption on all sections of our website where your personal data is processed, such as when you complete the contact form. You can verify this yourself. When you are visiting an encrypted section of our website, a padlock symbol will appear in the lower-right or upper-left area of your browser. In addition, the URL will change from http:// to https://, indicating that the page is secure.
 
 ### B. We take security seriously
 
-i. Tysma Lems Tax Advisors takes the protection of your personal data very seriously and therefore implements appropriate measures to prevent misuse, loss, unauthorised access, unwanted disclosure and unauthorised alteration. If you believe that your data is not adequately protected or if there are indications of misuse, please contact us immediately at [info@tysmalems.com](mailto:info@tysmalems.com).
+i. TYSMA | LEMS takes the protection of your personal data very seriously and therefore implements appropriate measures to prevent misuse, loss, unauthorised access, unwanted disclosure and unauthorised alteration. If you believe that your data is not adequately protected or if there are indications of misuse, please contact us immediately at [info@tysmalems.com](mailto:info@tysmalems.com).
 
 ## 10. Changes to this Privacy Statement
 
 ### A. Changes
 
-i. As Tysma Lems Tax Advisors regularly reviews its own policies and new processing purposes may be introduced on our website(s), this Privacy Statement may be amended from time to time.
+i. As TYSMA | LEMS regularly reviews its own policies and new processing purposes may be introduced on our website(s), this Privacy Statement may be amended from time to time.
 
 ## 11. Questions
 
 ### A. Contact person
 
-i. Tysma Lems Tax Advisors has appointed Andre Kievit as the person responsible for GDPR-related matters. If you have any comments regarding this Privacy Statement or general questions concerning the GDPR, please contact us at [info@tysmalems.com](mailto:info@tysmalems.com).`,
-    seoDescription: "Privacy statement for Tysma | Lems.",
+i. TYSMA | LEMS has appointed Andre Kievit as the person responsible for GDPR-related matters. If you have any comments regarding this Privacy Statement or general questions concerning the GDPR, please contact us at [info@tysmalems.com](mailto:info@tysmalems.com).`,
+    seoDescription: "Privacy statement for TYSMA | LEMS.",
     status: "Published",
     updatedAt: "2026-09-02",
   },
@@ -265,8 +265,8 @@ i. Tysma Lems Tax Advisors has appointed Andre Kievit as the person responsible 
     label: "Disclaimer",
     title: "Disclaimer",
     intro: "Important notes about the information provided on this website.",
-    body: "TYSMALEMS.COM\n\nTysma | Lems does its utmost best to keep the website as up to date as possible. However, despite the love and care we put into the website, it is always possible that the content is not current or up to date. Tysma | Lems is not liable for errors and/or omissions in the content of the website.\n\nRegarding product and service information the following applies: you cannot claim a binding agreement or booking in case of an obvious typo and/or programming error.\n\nThe content of the website, including images, logos, photography and videos are subject to intellectual property rights. These rights are vested in Tysma | Lems or its licensors. You are not allowed to copy or (re)publish the content without prior written permission of Tysma | Lems.",
-    seoDescription: "Website disclaimer for Tysma | Lems.",
+    body: "TYSMALEMS.COM\n\nTYSMA | LEMS does its utmost best to keep the website as up to date as possible. However, despite the love and care we put into the website, it is always possible that the content is not current or up to date. TYSMA | LEMS is not liable for errors and/or omissions in the content of the website.\n\nRegarding product and service information the following applies: you cannot claim a binding agreement or booking in case of an obvious typo and/or programming error.\n\nThe content of the website, including images, logos, photography and videos are subject to intellectual property rights. These rights are vested in TYSMA | LEMS or its licensors. You are not allowed to copy or (re)publish the content without prior written permission of TYSMA | LEMS.",
+    seoDescription: "Website disclaimer for TYSMA | LEMS.",
     status: "Published",
     updatedAt: "2026-09-02",
   },
@@ -275,8 +275,8 @@ i. Tysma Lems Tax Advisors has appointed Andre Kievit as the person responsible 
     label: "Cookies",
     title: "Cookies",
     intro: "Information about the cookies and similar technologies used on this website.",
-    body: "This page is reserved for the current cookie statement of Tysma | Lems.\n\nUse this CMS section to explain which cookies are used, why they are used and how visitors can manage their preferences.",
-    seoDescription: "Cookie statement for Tysma | Lems.",
+    body: "This page is reserved for the current cookie statement of TYSMA | LEMS.\n\nUse this CMS section to explain which cookies are used, why they are used and how visitors can manage their preferences.",
+    seoDescription: "Cookie statement for TYSMA | LEMS.",
     status: "Published",
     updatedAt: "2026-08-31",
   },
@@ -284,9 +284,9 @@ i. Tysma Lems Tax Advisors has appointed Andre Kievit as the person responsible 
     slug: "csr",
     label: "Corporate Social Responsibility",
     title: "Corporate Social Responsibility",
-    intro: "How Tysma | Lems looks at responsible business, people, community and long-term professional conduct.",
-    body: "This page is reserved for the current Corporate Social Responsibility statement of Tysma | Lems.\n\nUse this CMS section to describe the firm's commitments, initiatives and principles in a concise and practical way.",
-    seoDescription: "Corporate Social Responsibility information from Tysma | Lems.",
+    intro: "How TYSMA | LEMS looks at responsible business, people, community and long-term professional conduct.",
+    body: "This page is reserved for the current Corporate Social Responsibility statement of TYSMA | LEMS.\n\nUse this CMS section to describe the firm's commitments, initiatives and principles in a concise and practical way.",
+    seoDescription: "Corporate Social Responsibility information from TYSMA | LEMS.",
     status: "Published",
     updatedAt: "2026-08-31",
   },
@@ -444,7 +444,7 @@ function getArticles() {
       body: "Hoe graag zowel de wetgever als haar stakeholders tot een definitieve invulling van box 3 willen overgaan is de catch22 maar moeilijk te doorbreken. De wetgever heeft te maken met bezwaren die letterlijk bij elke invulling boven komen drijven en maar moeilijk te negeren zijn.\n\nDe stakeholders die hun systemen aan moeten passen aan de uiteindelijke keuze van de wetgever hebben niet de mogelijkheid om alvast 80 of 90% van de oplossing klaar te zetten. Dat is geen onwil maar de feitelijke werking van software en ICT infrastructuren.\n\nDeze catch 22 is niet weg met een vuist op tafel.",
       category: "International Tax",
       tags: ["box 3", "vermogensbeheer", "vermogensbelasting", "vermogenswinstbelasting", "vermogensrendementsheffing"],
-      authors: ["Tysma | Lems Rotterdam"],
+      authors: ["TYSMA | LEMS Rotterdam"],
       publishedAt: "2026-09-02T17:20",
       updatedAt: "2026-09-02T17:20",
       status: "Published",
@@ -453,7 +453,7 @@ function getArticles() {
       publishToLinkedIn: true,
       publicShareEnabled: true,
       heroMedia: "box-3-fd-2026.jpg",
-      seoDescription: "Tysma | Lems deelt een FD krantenbericht over de status van de inrichting van box 3 door de wetgevers.",
+      seoDescription: "TYSMA | LEMS deelt een FD krantenbericht over de status van de inrichting van box 3 door de wetgevers.",
     },
   ];
   const articles = readJson(articlesKey, fallback);

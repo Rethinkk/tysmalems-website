@@ -8,7 +8,7 @@ const defaultArticles = [
     body: "Hoe graag zowel de wetgever als haar stakeholders tot een definitieve invulling van box 3 willen overgaan is de catch22 maar moeilijk te doorbreken. De wetgever heeft te maken met bezwaren die letterlijk bij elke invulling boven komen drijven en maar moeilijk te negeren zijn.\n\nDe stakeholders die hun systemen aan moeten passen aan de uiteindelijke keuze van de wetgever hebben niet de mogelijkheid om alvast 80 of 90% van de oplossing klaar te zetten. Dat is geen onwil maar de feitelijke werking van software en ICT infrastructuren.\n\nDeze catch 22 is niet weg met een vuist op tafel.",
     category: "International Tax",
     tags: ["box 3", "vermogensbeheer", "vermogensbelasting", "vermogenswinstbelasting", "vermogensrendementsheffing"],
-    authors: ["Tysma | Lems Rotterdam"],
+    authors: ["TYSMA | LEMS Rotterdam"],
     publishedAt: "2026-09-02T17:20",
     updatedAt: "2026-09-02T17:20",
     status: "Published",
@@ -17,7 +17,7 @@ const defaultArticles = [
     publishToLinkedIn: true,
     publicShareEnabled: true,
     heroMedia: "box-3-fd-2026.jpg",
-    seoDescription: "Tysma | Lems deelt een FD krantenbericht over de status van de inrichting van box 3 door de wetgevers.",
+    seoDescription: "TYSMA | LEMS deelt een FD krantenbericht over de status van de inrichting van box 3 door de wetgevers.",
   },
 ];
 
@@ -132,12 +132,12 @@ function renderJournalLanding() {
   setStructuredData("journal-collection-schema", {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Tysma | Lems Journal",
+    name: "TYSMA | LEMS Journal",
     description: "Thoughts, observations and perspectives on international lives.",
     url: `${siteUrl}/journal/`,
     publisher: {
       "@type": "Organization",
-      name: "Tysma | Lems",
+      name: "TYSMA | LEMS",
       url: siteUrl,
     },
   });
@@ -192,18 +192,18 @@ function renderCategoryPage() {
     ? publishedArticles()
     : publishedArticles().filter((article) => article.category === category);
 
-  document.title = `${category} Journal | Tysma Lems`;
-  setMeta("description", `Tysma | Lems Journal articles about ${category}.`);
+  document.title = `${category} Journal | TYSMA | LEMS`;
+  setMeta("description", `TYSMA | LEMS Journal articles about ${category}.`);
   setCanonical(`journal/category/${categorySlug(category)}/`);
   setStructuredData("journal-category-schema", {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: `${category} Journal`,
-    description: `Tysma | Lems Journal articles about ${category}.`,
+    description: `TYSMA | LEMS Journal articles about ${category}.`,
     url: `${siteUrl}/journal/category/${categorySlug(category)}/`,
     isPartOf: {
       "@type": "CollectionPage",
-      name: "Tysma | Lems Journal",
+      name: "TYSMA | LEMS Journal",
       url: `${siteUrl}/journal/`,
     },
   });
@@ -231,7 +231,7 @@ function renderArticlePage() {
     return;
   }
 
-  document.title = `${article.title} | Tysma Lems`;
+  document.title = `${article.title} | TYSMA | LEMS`;
   setMeta("description", article.seoDescription || article.standfirst);
   setMeta("og:title", article.socialTitle || article.title, "property");
   setMeta("og:description", article.socialDescription || article.standfirst, "property");
@@ -257,13 +257,13 @@ function renderArticlePage() {
     dateModified: article.updatedAt || article.publishedAt,
     articleSection: article.category,
     keywords: article.tags || [],
-    author: (article.authors || ["Tysma | Lems"]).map((author) => ({
+    author: (article.authors || ["TYSMA | LEMS"]).map((author) => ({
       "@type": "Person",
       name: author,
     })),
     publisher: {
       "@type": "Organization",
-      name: "Tysma | Lems",
+      name: "TYSMA | LEMS",
       url: siteUrl,
     },
     mainEntityOfPage: {
@@ -284,7 +284,7 @@ function renderArticlePage() {
     ${article.heroMedia ? `<img class="article-hero" src="${article.heroMedia}" alt="">` : ""}
     <div class="article-body">${paragraphs}</div>
     <aside class="article-contact">
-      <p>If you would like to know more about this subject, contact Tysma | Lems.</p>
+      <p>If you would like to know more about this subject, contact TYSMA | LEMS.</p>
       <a href="contact.html">Contact us</a>
     </aside>
     <footer class="article-footer">

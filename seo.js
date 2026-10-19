@@ -1,8 +1,8 @@
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  name: "Tysma | Lems",
-  alternateName: "Tysma Lems",
+  name: "TYSMA | LEMS",
+  alternateName: "TYSMA | LEMS",
   url: "https://www.tysmalems.com",
   email: "info@tysmalems.com",
   telephone: "+31 10 833 12 25",
@@ -28,12 +28,12 @@ const organizationSchema = {
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Tysma | Lems",
+  name: "TYSMA | LEMS",
   url: "https://www.tysmalems.com",
   inLanguage: "en",
   publisher: {
     "@type": "Organization",
-    name: "Tysma | Lems",
+    name: "TYSMA | LEMS",
   },
 };
 
