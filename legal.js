@@ -287,7 +287,7 @@ const pageUrls = {
 };
 
 function getCorporatePages() {
-  const saved = JSON.parse(localStorage.getItem(corporatePagesKey) || "null");
+  const saved = SiteSecurity.readArray(corporatePagesKey, null);
   const pages = Array.isArray(saved) && saved.length > 0 ? saved : defaultCorporatePages;
   return defaultCorporatePages.map((fallbackPage) => ({
     ...fallbackPage,
@@ -332,7 +332,7 @@ function setCanonical(path) {
 }
 
 function formatDate(value) {
-  if (!value) return "";
+  if (!value || Number.isNaN(new Date(value).getTime())) return "";
   return new Intl.DateTimeFormat("en", { day: "2-digit", month: "short", year: "numeric" }).format(new Date(value));
 }
 
@@ -346,10 +346,22 @@ function escapeHtml(value = "") {
 }
 
 function formatInline(value = "") {
-  return escapeHtml(value)
-    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
-    .replace(/(https:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>');
+  const source = String(value);
+  const tokens = /\[([^\]\n]+)\]\(([^)\s]+)\)|\*\*([^*\n]+)\*\*|https:\/\/[^\s<]+/g;
+  let html = "";
+  let cursor = 0;
+  for (const match of source.matchAll(tokens)) {
+    html += escapeHtml(source.slice(cursor, match.index));
+    if (match[3] !== undefined) {
+      html += `<strong>${escapeHtml(match[3])}</strong>`;
+    } else {
+      const label = match[1] ?? match[0];
+      const url = SiteSecurity.url(match[2] ?? match[0]);
+      html += url ? `<a href="${escapeHtml(url)}" rel="noopener noreferrer">${escapeHtml(label)}</a>` : escapeHtml(label);
+    }
+    cursor = match.index + match[0].length;
+  }
+  return html + escapeHtml(source.slice(cursor));
 }
 
 function renderLegalBody(value) {
@@ -379,10 +391,10 @@ function renderLegalHub() {
     <div class="legal-hub-list">
       ${pages.map((page) => `
         <article class="legal-hub-item">
-          <p>${page.label}</p>
-          <h2>${page.title}</h2>
+          <p>${SiteSecurity.escape(page.label)}</p>
+          <h2>${SiteSecurity.escape(page.title)}</h2>
           <span>Updated ${formatDate(page.updatedAt)}</span>
-          <a href="${pageUrls[page.slug]}">Read page -></a>
+          <a href="${SiteSecurity.escape(pageUrls[page.slug] || "legal.html")}">Read page -></a>
         </article>
       `).join("")}
     </div>
@@ -415,11 +427,11 @@ function renderCorporatePage() {
     <div class="section-label">Legal & Responsibility</div>
     <div class="legal-page-grid">
       <div>
-        <h1 class="page-title">${page.title}<span class="brand-dot">.</span></h1>
-        <p class="legal-intro">${page.intro}</p>
+        <h1 class="page-title">${SiteSecurity.escape(page.title)}<span class="brand-dot">.</span></h1>
+        <p class="legal-intro">${SiteSecurity.escape(page.intro)}</p>
       </div>
       <aside class="legal-page-meta" aria-label="Page information">
-        <span>${page.label}</span>
+        <span>${SiteSecurity.escape(page.label)}</span>
         <p>Updated ${formatDate(page.updatedAt)}</p>
       </aside>
     </div>

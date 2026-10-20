@@ -65,7 +65,7 @@ function setStructuredData(id, data) {
 }
 
 function getArticles() {
-  const saved = JSON.parse(localStorage.getItem("tlJournalArticles") || "null");
+  const saved = SiteSecurity.readArray("tlJournalArticles", null);
   if (!Array.isArray(saved) || saved.length === 0) return defaultArticles;
   return dedupeArticles(saved.map((article) => {
     if (article.slug === "international-lives-require-international-thinking") return defaultArticles[0];
@@ -94,14 +94,14 @@ function publishedArticles() {
 }
 
 function formatDate(value) {
-  if (!value) return "";
+  if (!value || Number.isNaN(new Date(value).getTime())) return "";
   return new Intl.DateTimeFormat("en", { day: "2-digit", month: "short", year: "numeric" }).format(new Date(value));
 }
 
 function metaLine(article) {
   return ["Journal " + (article.journalNumber || ""), article.category, formatDate(article.publishedAt)]
     .filter(Boolean)
-    .join(" - ");
+    .map((value) => SiteSecurity.escape(value)).join(" - ");
 }
 
 function articleUrl(article) {
@@ -116,8 +116,8 @@ function renderArticleCard(article) {
   return `
     <article class="journal-item">
       <p class="journal-meta">${metaLine(article)}</p>
-      <h2>${article.title}</h2>
-      <p>${article.standfirst}</p>
+      <h2>${SiteSecurity.escape(article.title)}</h2>
+      <p>${SiteSecurity.escape(article.standfirst)}</p>
       <a href="${articleUrl(article)}">Read Journal -></a>
     </article>
   `;
@@ -160,8 +160,8 @@ function renderJournalLanding() {
       ? `
         <article class="featured-journal">
           <p class="journal-meta">${metaLine(featuredArticle)}</p>
-          <h2>${featuredArticle.title}</h2>
-          <p>${featuredArticle.standfirst}</p>
+          <h2>${SiteSecurity.escape(featuredArticle.title)}</h2>
+          <p>${SiteSecurity.escape(featuredArticle.standfirst)}</p>
           <a href="${articleUrl(featuredArticle)}">Read Journal -></a>
         </article>
       `
@@ -193,13 +193,13 @@ function renderCategoryPage() {
     : publishedArticles().filter((article) => article.category === category);
 
   document.title = `${category} Journal | TYSMA | LEMS`;
-  setMeta("description", `TYSMA | LEMS Journal articles about ${category}.`);
+  setMeta("description", `TYSMA | LEMS Journal articles about ${SiteSecurity.escape(category)}.`);
   setCanonical(`journal/category/${categorySlug(category)}/`);
   setStructuredData("journal-category-schema", {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: `${category} Journal`,
-    description: `TYSMA | LEMS Journal articles about ${category}.`,
+    name: `${SiteSecurity.escape(category)} Journal`,
+    description: `TYSMA | LEMS Journal articles about ${SiteSecurity.escape(category)}.`,
     url: `${siteUrl}/journal/category/${categorySlug(category)}/`,
     isPartOf: {
       "@type": "CollectionPage",
@@ -210,8 +210,8 @@ function renderCategoryPage() {
 
   categoryRoot.innerHTML = `
     <div class="section-label">Journal category</div>
-    <h1 class="page-title">${category}</h1>
-    <p>Editorial notes and observations in ${category}.</p>
+    <h1 class="page-title">${SiteSecurity.escape(category)}</h1>
+    <p>Editorial notes and observations in ${SiteSecurity.escape(category)}.</p>
     <div class="journal-list category-list">
       ${articles.length > 0 ? articles.map(renderArticleCard).join("") : `<p class="journal-empty">No published Journal items in this category yet.</p>`}
     </div>
@@ -237,8 +237,8 @@ function renderArticlePage() {
   setMeta("og:description", article.socialDescription || article.standfirst, "property");
   setMeta("og:type", "article", "property");
   setMeta("og:url", canonicalArticleUrl(article), "property");
-  if (article.heroMedia) {
-    const imageUrl = article.heroMedia.startsWith("http") ? article.heroMedia : `${siteUrl}/${article.heroMedia}`;
+  if (typeof article.heroMedia === "string" && !article.heroMedia.startsWith("data:") && SiteSecurity.url(article.heroMedia, true)) {
+    const imageUrl = new URL(article.heroMedia, `${siteUrl}/`).href;
     setMeta("og:image", imageUrl, "property");
     setMeta("twitter:image", imageUrl);
   }
@@ -274,14 +274,14 @@ function renderArticlePage() {
   const paragraphs = String(article.body || "")
     .split(/\n{2,}/)
     .filter(Boolean)
-    .map((paragraph) => `<p>${paragraph}</p>`)
+    .map((paragraph) => `<p>${SiteSecurity.escape(paragraph)}</p>`)
     .join("");
 
   articleRoot.innerHTML = `
     <p class="journal-meta">${metaLine(article)}</p>
-    <h1 class="page-title">${article.title}</h1>
-    <p class="article-standfirst">${article.standfirst}</p>
-    ${article.heroMedia ? `<img class="article-hero" src="${article.heroMedia}" alt="">` : ""}
+    <h1 class="page-title">${SiteSecurity.escape(article.title)}</h1>
+    <p class="article-standfirst">${SiteSecurity.escape(article.standfirst)}</p>
+    ${article.heroMedia ? `<img class="article-hero" src="${SiteSecurity.escape(SiteSecurity.url(article.heroMedia, true))}" alt="">` : ""}
     <div class="article-body">${paragraphs}</div>
     <aside class="article-contact">
       <p>If you would like to know more about this subject, contact TYSMA | LEMS.</p>

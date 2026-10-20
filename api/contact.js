@@ -7,21 +7,45 @@ function escapeHtml(value = "") {
     .replace(/'/g, "&#039;");
 }
 
-function clean(value = "") {
-  return String(value).trim().slice(0, 4000);
-}
-
 function isEmail(value = "") {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
 module.exports = async function handler(request, response) {
+  response.setHeader("Cache-Control", "no-store");
   if (request.method !== "POST") {
     response.setHeader("Allow", "POST");
     return response.status(405).json({ message: "Method not allowed." });
   }
 
-  let body = request.body || {};
+  const contentType = String(request.headers?.["content-type"] || "").split(";")[0].trim().toLowerCase();
+  if (contentType !== "application/json") {
+    return response.status(415).json({ message: "Please send a JSON message." });
+  }
+
+  // Prevent submissions from other websites. This is not a bot/rate limiter:
+  // non-browser clients can forge Origin and must be controlled at the edge.
+  try {
+    const origin = new URL(request.headers?.origin);
+    const local = ["localhost", "127.0.0.1", "[::1]"].includes(origin.hostname);
+    if (origin.origin !== request.headers.origin || origin.host !== request.headers.host ||
+        (origin.protocol !== "https:" && !(local && origin.protocol === "http:"))) {
+      return response.status(403).json({ message: "Please use the contact form on this website." });
+    }
+  } catch {
+    return response.status(403).json({ message: "Please use the contact form on this website." });
+  }
+
+  let body = request.body;
+  try {
+    const serialized = typeof body === "string" ? body : JSON.stringify(body);
+    if (!serialized) throw new Error("Missing body");
+    if (Buffer.byteLength(serialized, "utf8") > 16 * 1024) {
+      return response.status(413).json({ message: "The message is too large." });
+    }
+  } catch {
+    return response.status(400).json({ message: "Invalid message payload." });
+  }
   if (typeof body === "string") {
     try {
       body = body ? JSON.parse(body) : {};
@@ -30,19 +54,33 @@ module.exports = async function handler(request, response) {
     }
   }
 
-  if (clean(body.website)) {
+  if (!body || typeof body !== "object" || Array.isArray(body)) {
+    return response.status(400).json({ message: "Invalid message payload." });
+  }
+
+  if (typeof body.website === "string" && body.website.trim()) {
     return response.status(200).json({ ok: true });
   }
 
-  const name = clean(body.name);
-  const company = clean(body.company);
-  const email = clean(body.email);
-  const phone = clean(body.phone);
-  const country = clean(body.country);
-  const message = clean(body.message);
+  const limits = { name: 120, company: 160, email: 254, phone: 60, country: 100, message: 4000 };
+  const fields = {};
+  for (const [field, max] of Object.entries(limits)) {
+    const value = body[field] ?? "";
+    if (typeof value !== "string" || value.length > max ||
+        (field !== "message" && /[\u0000-\u001f\u007f]/.test(value)) ||
+        (field === "message" && /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/.test(value))) {
+      return response.status(400).json({ message: "Please check the message fields and their lengths." });
+    }
+    fields[field] = value.trim();
+  }
+  const { name, company, email, phone, country, message } = fields;
 
   if (!name || !company || !email || !country || !message || !isEmail(email)) {
     return response.status(400).json({ message: "Please complete the required fields." });
+  }
+
+  if (body.privacy !== "on" && body.privacy !== true) {
+    return response.status(400).json({ message: "Please confirm the privacy statement before sending." });
   }
 
   const apiKey = process.env.RESEND_API_KEY;
@@ -78,25 +116,30 @@ module.exports = async function handler(request, response) {
     ${message.split(/\n{2,}/).map((paragraph) => `<p>${escapeHtml(paragraph).replace(/\n/g, "<br>")}</p>`).join("")}
   `;
 
-  const resendResponse = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from,
-      to,
-      reply_to: email,
-      subject,
-      text,
-      html,
-    }),
-  });
+  try {
+    const resendResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      signal: AbortSignal.timeout(10_000),
+      body: JSON.stringify({
+        from,
+        to,
+        reply_to: email,
+        subject,
+        text,
+        html,
+      }),
+    });
 
-  if (!resendResponse.ok) {
-    return response.status(502).json({ message: "The message could not be sent." });
+    if (!resendResponse.ok) {
+      return response.status(502).json({ message: "The message could not be sent." });
+    }
+
+    return response.status(200).json({ ok: true });
+  } catch {
+    return response.status(502).json({ message: "The message could not be sent. Please try again later." });
   }
-
-  return response.status(200).json({ ok: true });
 };

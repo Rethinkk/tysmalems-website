@@ -72,27 +72,27 @@
           </label>
           <label>
             <span>Name</span>
-            <input name="name" autocomplete="name" required>
+            <input name="name" maxlength="120" autocomplete="name" required>
           </label>
           <label>
             <span>Company name</span>
-            <input name="company" autocomplete="organization" required>
+            <input name="company" maxlength="160" autocomplete="organization" required>
           </label>
           <label>
             <span>Email</span>
-            <input type="email" name="email" autocomplete="email" required>
+            <input type="email" name="email" maxlength="254" autocomplete="email" required>
           </label>
           <label>
             <span>Telephone (optional)</span>
-            <input type="tel" name="phone" autocomplete="tel">
+            <input type="tel" name="phone" maxlength="60" autocomplete="tel">
           </label>
           <label>
             <span>Country</span>
-            <input name="country" autocomplete="country-name" required>
+            <input name="country" maxlength="100" autocomplete="country-name" required>
           </label>
           <label>
             <span>Message</span>
-            <textarea name="message" rows="9" required></textarea>
+            <textarea name="message" maxlength="4000" rows="9" required></textarea>
           </label>
           <label class="contact-consent">
             <input type="checkbox" name="privacy" required>
@@ -162,7 +162,8 @@
       </div>
     </footer>
 
+    <script src="/security.js?v=1"></script>
     <script src="seo.js?v=2"></script>
-    <script src="script.js?v=26"></script>
+    <script src="script.js?v=50"></script>
   </body>
 </html>

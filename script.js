@@ -31,13 +31,13 @@ window.addEventListener("scroll", syncHeader, { passive: true });
 
 document.querySelectorAll("[data-hero-slides]").forEach((heroSlides) => {
   if (heroSlides.dataset.heroSlides === "approach") {
-    const savedApproachHeroImages = JSON.parse(localStorage.getItem("tlApproachHeroImages") || "null");
+    const savedApproachHeroImages = SiteSecurity.readArray("tlApproachHeroImages", null);
     const images = Array.isArray(savedApproachHeroImages) && savedApproachHeroImages.length > 0
       ? savedApproachHeroImages
       : defaultApproachHeroImages;
 
     heroSlides.innerHTML = images
-      .map((image, index) => `<img src="${image.src}" alt="" class="hero-image${index === 0 ? " is-active" : ""}">`)
+      .map((image, index) => `<img src="${SiteSecurity.escape(SiteSecurity.url(image.src, true))}" alt="" class="hero-image${index === 0 ? " is-active" : ""}">`)
       .join("");
   }
 
@@ -54,7 +54,7 @@ document.querySelectorAll("[data-hero-slides]").forEach((heroSlides) => {
 });
 
 document.querySelectorAll(".social-links").forEach((socialLinks) => {
-  const savedSocialLinks = JSON.parse(localStorage.getItem("tlSocialLinks") || "null");
+  const savedSocialLinks = SiteSecurity.readArray("tlSocialLinks", null);
   const savedLinkedIn = Array.isArray(savedSocialLinks)
     ? savedSocialLinks.find((link) => link.id === "linkedin")
     : null;
@@ -63,7 +63,7 @@ document.querySelectorAll(".social-links").forEach((socialLinks) => {
   const activeLinks = links.filter((link) => link.url);
 
   socialLinks.innerHTML = (activeLinks.length > 0 ? activeLinks : defaultSocialLinks)
-    .map((link) => `<a href="${link.url || "#"}" aria-label="${link.label}"${link.url ? ' target="_blank" rel="noopener"' : ""}>${link.shortLabel}</a>`)
+    .map((link) => `<a href="${SiteSecurity.escape(SiteSecurity.url(link.url) || "#")}" aria-label="${SiteSecurity.escape(link.label)}"${link.url ? ' target="_blank" rel="noopener"' : ""}>${SiteSecurity.escape(link.shortLabel)}</a>`)
     .join("");
 });
 

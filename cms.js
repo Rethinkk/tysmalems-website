@@ -308,7 +308,7 @@ const articleHero = document.querySelector("[data-article-hero]");
 let pendingArticleHero = "";
 
 function readJson(key, fallback) {
-  const saved = JSON.parse(localStorage.getItem(key) || "null");
+  const saved = SiteSecurity.readArray(key, null);
   return Array.isArray(saved) ? saved : fallback;
 }
 
@@ -339,12 +339,12 @@ function renderMediaManager(element, key, fallback, removeAttribute) {
   element.innerHTML = images
     .map((image) => `
       <article class="media-row">
-        <img src="${image.src}" alt="">
+        <img src="${SiteSecurity.escape(SiteSecurity.url(image.src, true))}" alt="">
         <div>
-          <strong>${image.name || "Hero photo"}</strong>
-          <span>${image.src.startsWith("data:") ? "Uploaded image" : image.src}</span>
+          <strong>${SiteSecurity.escape(image.name || "Hero photo")}</strong>
+          <span>${SiteSecurity.escape(String(image.src || "").startsWith("data:") ? "Uploaded image" : image.src)}</span>
         </div>
-        <button type="button" ${removeAttribute}="${image.id}">Remove</button>
+        <button type="button" ${removeAttribute}="${SiteSecurity.escape(image.id)}">Remove</button>
       </article>
     `)
     .join("");
@@ -414,10 +414,10 @@ function renderCorporatePageList() {
     .map((page) => `
       <article class="corporate-page-row">
         <div>
-          <strong>${page.label}</strong>
-          <span>${page.status || "Draft"} - Updated ${page.updatedAt || "not set"}</span>
+          <strong>${SiteSecurity.escape(page.label)}</strong>
+          <span>${SiteSecurity.escape(page.status || "Draft")} - Updated ${SiteSecurity.escape(page.updatedAt || "not set")}</span>
         </div>
-        <a href="${corporatePageUrl(page.slug)}">Preview</a>
+        <a href="${SiteSecurity.escape(SiteSecurity.url(corporatePageUrl(page.slug)))}">Preview</a>
       </article>
     `)
     .join("");
@@ -479,18 +479,18 @@ function renderDesk() {
     .map((article) => `
       <article class="desk-row">
         <div>
-          <p>${article.journalNumber || "No number"} - ${article.category || "Uncategorised"} - ${article.status || "Draft"}</p>
-          <h3>${article.title || "Untitled"}</h3>
-          <span>${article.slug || ""}</span>
+          <p>${SiteSecurity.escape(article.journalNumber || "No number")} - ${SiteSecurity.escape(article.category || "Uncategorised")} - ${SiteSecurity.escape(article.status || "Draft")}</p>
+          <h3>${SiteSecurity.escape(article.title || "Untitled")}</h3>
+          <span>${SiteSecurity.escape(article.slug || "")}</span>
           <div class="desk-flags">
             ${article.publishToLinkedIn ? "<span>LinkedIn queued</span>" : ""}
             ${article.publicShareEnabled ? "<span>Public share</span>" : ""}
           </div>
         </div>
         <div class="desk-actions">
-          <button type="button" data-edit-article="${article.id}">Edit</button>
+          <button type="button" data-edit-article="${SiteSecurity.escape(article.id)}">Edit</button>
           <a href="article.html?slug=${encodeURIComponent(article.slug || "")}">Preview</a>
-          <button type="button" data-delete-article="${article.id}">Delete</button>
+          <button type="button" data-delete-article="${SiteSecurity.escape(article.id)}">Delete</button>
         </div>
       </article>
     `)
